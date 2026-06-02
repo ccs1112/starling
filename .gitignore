@@ -1,0 +1,31 @@
+# Local working notes — not part of the published project.
+/METHOD.md
+/EXERCISES.md
+/.solutions/
+
+# Go build artifacts
+/operator/bin/
+/scheduler/bin/
+*.test
+*.out
+
+# Terraform state and local providers (never commit state or secrets)
+infra/.terraform/
+infra/.terraform.lock.hcl
+*.tfstate
+*.tfstate.*
+*.tfvars
+crash.log
+
+# Kubeconfigs / generated TLS / secrets
+kubeconfig
+*.kubeconfig
+*.pem
+*.key
+
+# Editor / OS
+*.swp
+*~
+.DS_Store
+.idea/
+.vscode/
