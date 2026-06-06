@@ -1,11 +1,14 @@
 # Starling
 
-A Kubernetes control plane for inference serving, built from the substrate up:
-an `InferenceService` custom resource and a controller that reconciles
-model-serving workloads directly on `client-go`, plus a scheduler-framework
-plugin that admits a replica set as a gang. Deployed the way production
-clusters run it — Terraform-provisioned EKS, Argo CD delivery, Karpenter spot
-capacity.
+> A Kubernetes control plane for GPU inference — a custom operator and an
+> all-or-nothing gang scheduler, built on raw client-go.
+
+Built from the substrate up rather than assembled from off-the-shelf
+operators: an `InferenceService` custom resource and a controller that
+reconciles model-serving workloads directly on `client-go`, plus a
+scheduler-framework plugin that admits a replica set as a gang. Deployed the
+way production clusters run it — Terraform-provisioned EKS, Argo CD delivery,
+Karpenter spot capacity.
 
 A starling murmuration moves as one coordinated unit; gang scheduling enforces
 the same all-or-nothing collective motion on a distributed workload.
