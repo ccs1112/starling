@@ -25,3 +25,22 @@ type InferenceServiceStatus struct {
 	// ReadyReplicas mirrors the owned Deployment's ready count.
 	ReadyReplicas int32 `json:"readyReplicas,omitempty"`
 }
+
+// InferenceService is one served model. The API server stores it. The controller
+// reconciles a Deployment and Service to match.
+type InferenceService struct {
+	metav1.TypeMeta   `json:",inline"`
+	metav1.ObjectMeta `json:"metadata,omitempty"`
+
+	Spec   InferenceServiceSpec   `json:"spec,omitempty"`
+	Status InferenceServiceStatus `json:"status,omitempty"`
+}
+
+// InferenceServiceList is what a List call returns. It is a page of items plus
+// the list metadata (resourceVersion, continue token) the informer needs to Watch
+// from the right point.
+type InferenceServiceList struct {
+	metav1.TypeMeta `json:",inline"`
+	metav1.ListMeta `json:"metadata,omitempty"`
+	Items           []InferenceService `json:"items"`
+}
